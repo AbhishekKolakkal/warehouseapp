@@ -1,0 +1,18 @@
+.heading {
+	text-align: center;
+}
+
+.topContainer {
+	margin-top: 20px;
+}
+.btnSearch {
+	width: 20%;
+	height: auto;
+} 
+
+.txtBox {
+	height: 32px;
+} 
+.productTable {
+	margin-top: 1%;
+}

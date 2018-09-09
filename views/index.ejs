@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+	<title>Warehouse App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<div class="container topContainer">
+		<div class="jumbotron">
+			<h1 class="heading" >Warehouse App</h1>
+			<a type="button" class="btn btn-primary btn-lg btn-block" href="/addProducts">Add Products</a>
+		</div>
+		<div class="row container ">
+			<form action="/" method="GET">
+				<input class="col-md-3 col-md-offset-3 txtBox"  type="number" name="search" placeholder="Search By Id">
+				<input class="btn btn-primary col-md-2 col-md-offset-0 btnSearch" type="Submit" value="Search">				
+			</form>	
+		</div>	
+		<hr>
+	</div>
+	<table class="table table-striped productTable">
+	  <tr>
+	    <th>Product Id</th> 
+	    <th>Product Name</th>
+	    <th>Product Type</th>
+	    <th>Date of In</th>
+	    <th>Button</th>
+	  </tr>
+
+	 <% if (products.length >0) { %>
+	  <% products.forEach(function(products){ %>
+	  <tr>
+	    <td><%= products.productId %></td>
+	    <td><%= products.productName %></td> 
+	    <td><%= products.productType %></td>
+	    <td><%= products.dateOfIn %></td>
+	    <td>
+	    	<a class="btn btn-info" href="info/<%= products.productId %>"  data-id="<%= products.productId %>">More Info</a>
+	    </td>
+	  </tr>
+	<% }) %> 
+	</table>
+	<% } else {  %>
+	 <tr>
+	 <td colspan="5"><div><p class="heading alert alert-danger">No Data Found</p></div></td>
+	  </tr>
+</table>
+	<% } %>	
+</body>
+</html>
